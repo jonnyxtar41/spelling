@@ -1,70 +1,129 @@
-body {
-    font-family: sans-serif;
-    line-height: 1.6;
-    margin: 20px;
-    background-color: #f4f4f4;
-}
+        body {
+            font-family: sans-serif;
+            line-height: 1.6;
+            margin: 0; 
+            background-color: #f4f4f4;
+            overflow: hidden; 
+        }
+        #authOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        #authBox {
+            background-color: #2c3e50;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.7);
+        }
+        #authMessage {
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-size: 1.3em;
+            min-height: 2em; 
+        }
+        #startButton {
+            padding: 12px 30px;
+            font-size: 1.2em;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+        }
+        #startButton:hover:not(:disabled) {
+            background-color: #4cae4c;
+            transform: scale(1.05);
+        }
+        #startButton:disabled {
+            background-color: #7f8c8d;
+            cursor: not-allowed;
+        }
 
-.container {
-    max-width: 600px;
-    margin: auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-input[type="text"],
-input[type="date"],
-select {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-    background-color: white;
-}
-
-.no-select { /* Aunque no se usa explícitamente en el HTML actual, lo mantengo por si lo añades */
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-}
-
-button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #5cb85c;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #4cae4c;
-}
-
-button:disabled { /* Estilo para el botón deshabilitado */
-    background-color: #cccccc;
-    cursor: not-allowed;
-}
+        .container {
+            max-width: 600px;
+            margin: 20px auto; 
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none; 
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: white;
+        }
+        input:disabled,
+        select:disabled {
+            background-color: #e0e0e0 !important; 
+            color: #555 !important;
+            cursor: not-allowed;
+        }
+        .no-select {
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+        button[type="submit"] { 
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button[type="submit"]:hover:not(:disabled) {
+            background-color: #4cae4c;
+        }
+        button[type="submit"]:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        .date-timer-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        #fechaHoraActual {
+            margin-right: 15px; 
+        }
+        #countdownTimer {
+            font-weight: bold;
+            color: #d9534f; 
+        }
