@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Restringido con Borrado y Advertencia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Datos del Usuario y Palabras</h1>
+        <form id="myForm">
+
+            <div class="form-group">
+                <label for="fecha">Date:</label>
+                <p id="fechaHoraActual"></p>
+                <input type="hidden" id="fechaHoraActualInput" name="fechaHoraActual">
+            </div>
+
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" spellcheck="false" autocorrect="off" autocapitalize="off">
+            </div>
+
+            <div class="form-group">
+                <label for="curso">Curso:</label>
+                <select id="curso" name="curso">
+                    <option value="">-- Seleccione un curso --</option>
+                    <option value="curso1">3A</option>
+                    <option value="curso2">3B</option>
+                </select>
+            </div>
+
+            <div id="extraFieldsContainer">
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
