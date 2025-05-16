@@ -266,6 +266,12 @@
                 event.preventDefault(); 
                 clearInterval(countdownInterval); 
 
+                if (!form.checkValidity()) {
+                    form.reportValidity(); // Muestra los mensajes de validación del navegador
+                    return; 
+                }
+           
+
                 updateCurrentDateTime(); // Actualizar fecha/hora justo antes del envío para FormData
                 const formData = new FormData(form); // Capturar datos ANTES de limpiar
 
