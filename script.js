@@ -247,6 +247,19 @@
                 }
             });
             // --- FIN DE LA IMPLEMENTACIÓN DEL EVENTO BLUR ---
+              
+               // --- NUEVO EVENTO: PAGEHIDE ---
+            window.addEventListener('pagehide', function(event) {
+                // event.persisted es true si la página podría ser restaurada rápidamente desde la caché (bfcache)
+                // Para este caso, borramos independientemente de si está en bfcache o no, si la página se oculta.
+                if (authOverlay && authOverlay.style.display === 'none' && formContainer && formContainer.style.display === 'block') {
+                    console.log(`Evento pagehide detectado (persisted: ${event.persisted}).`);
+                    clearUserFormDataAndLog('pagehide');
+                } else {
+                    console.log(`Evento pagehide detectado (persisted: ${event.persisted}), pero el formulario no está activo/visible. No se borran datos.`);
+                }
+            });
+            // --- FIN NUEVO EVENTO: PAGEHIDE ---
                 
 
             form.addEventListener('submit', function(event) {
