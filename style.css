@@ -1,9 +1,9 @@
 body {
     font-family: sans-serif;
     line-height: 1.6;
-    margin: 0;
+    margin: 0; 
     background-color: #f4f4f4;
-    overflow: hidden; /* Ocultar scroll mientras el overlay está activo */
+    overflow: hidden; 
 }
 
 /* --- Overlay de Autenticación --- */
@@ -39,9 +39,16 @@ body {
     min-height: 2em; 
 }
 
-#startButton {
-    padding: 12px 30px;
-    font-size: 1.2em;
+/* --- **NUEVO**: Estilos para los botones de selección de actividad --- */
+#activitySelector {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Espacio entre los botones */
+}
+
+.activity-button {
+    padding: 12px 25px;
+    font-size: 1.1em;
     background-color: #5cb85c;
     color: white;
     border: none;
@@ -50,25 +57,28 @@ body {
     transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
-#startButton:hover:not(:disabled) {
+.activity-button:hover:not(:disabled) {
     background-color: #4cae4c;
     transform: scale(1.05);
 }
 
-#startButton:disabled {
+.activity-button:disabled {
     background-color: #7f8c8d;
     cursor: not-allowed;
 }
+/* --- Fin de nuevos estilos --- */
 
-/* --- Contenedor del Formulario --- */
-.container {
+
+/* --- Contenedores de Vistas (Spelling, Writing, etc.) --- */
+/* Esta clase se aplica a TODOS los contenedores de vistas */
+.view-container {
     max-width: 600px;
     margin: 20px auto; 
     background: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    display: none; /* Inicialmente oculto */
+    display: none; /* Ocultos por defecto */
 }
 
 h1 {
@@ -88,13 +98,15 @@ label {
 
 input[type="text"],
 input[type="date"],
-select {
+select,
+textarea { /* Agregado textarea */
     width: 100%;
     padding: 8px;
     border: 1px solid #ddd;
     border-radius: 4px;
     box-sizing: border-box;
     background-color: white;
+    font-family: sans-serif; /* Consistencia de fuente */
 }
 
 input:disabled,
@@ -104,25 +116,20 @@ select:disabled {
     cursor: not-allowed;
 }
 
-/* --- **NUEVO**: Estilos para mover el timer --- */
 .date-timer-wrapper {
     display: flex;
     align-items: center;
-    /* Se cambia 'space-between' por 'flex-start' para alinear a la izquierda */
     justify-content: flex-start; 
 }
 
-#fechaHoraActual {
-    /* Se aumenta el margen para dar más espacio entre la fecha y el timer */
+#spellingDateTime {
     margin-right: 25px; 
 }
 
-#countdownTimer {
+#spellingCountdownTimer {
     font-weight: bold;
-    color: #d9534f;
+    color: #d9534f; 
 }
-/* --- Fin de cambios para el timer --- */
-
 
 button[type="submit"] { 
     display: block;
