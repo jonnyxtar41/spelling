@@ -3,37 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario Restringido con Borrado y Advertencia</title>
+    <title>Formulario Dinámico</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-
     <div id="authOverlay">
         <div id="authBox">
-            <p id="authMessage">Presiona "Empezar" para verificar el acceso.</p>
-            <button id="startButton">Empezar</button>
+            <p id="authMessage">Selecciona una actividad para empezar.</p>
+            <div id="activitySelector">
+                <button class="activity-button" data-view="spelling">Spelling</button>
+                <button class="activity-button" data-view="writing">Writing</button>
+                <button class="activity-button" data-view="quiz">Quiz</button>
+            </div>
         </div>
     </div>
 
-    <div class="container"> 
+    <div id="spellingView" class="view-container">
         <h1>Spelling Quiz</h1>
-        <form id="myForm">
+        <form id="spellingForm">
             <div class="form-group">
                 <label for="fecha">Date:</label>
                 <div class="date-timer-wrapper">
-                    <p id="fechaHoraActual"></p>
-                    <p id="countdownTimer"></p>
+                    <p id="spellingDateTime"></p>
+                    <p id="spellingCountdownTimer"></p>
                 </div>
-                <input type="hidden" id="fechaHoraActualInput" name="fechaHoraActual">
+                <input type="hidden" id="spellingDateTimeInput" name="fechaHoraActual">
             </div>
             <div class="form-group">
-                <label for="nombre">Name and Lastname:</label>
-                <input type="text" id="nombre" name="nombre" spellcheck="false" autocorrect="off" autocapitalize="off" required>
+                <label for="spellingName">Name and Lastname:</label>
+                <input type="text" id="spellingName" name="nombre" spellcheck="false" autocorrect="off" autocapitalize="off" required>
             </div>
             <div class="form-group">
-                <label for="curso">Grade:</label>
-                <select id="curso" name="curso" required>
+                <label for="spellingGrade">Grade:</label>
+                <select id="spellingGrade" name="curso" required>
                     <option value="">-- Select your grade --</option>
                     <option value="3A">3A</option>
                     <option value="3B">3B</option>
@@ -46,10 +49,49 @@
             </div>
             <div id="extraFieldsContainer"></div>
             <div class="form-group">
-                <button type="submit">Submit</button>
+                <button type="submit">Submit Spelling</button>
             </div>
         </form>
     </div>
+
+    <div id="writingView" class="view-container">
+        <h1>Writing Task</h1>
+        <form id="writingForm">
+            <div class="form-group">
+                 <label for="writingName">Name and Lastname:</label>
+                <input type="text" id="writingName" name="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="writingTopic">Topic: The Importance of Recycling</label>
+                <textarea id="writingText" name="writing_text" rows="15" placeholder="Start writing your essay here..." required></textarea>
+            </div>
+             <div class="form-group">
+                <button type="submit">Submit Writing</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="quizView" class="view-container">
+        <h1>General Knowledge Quiz</h1>
+        <form id="quizForm">
+            <div class="form-group">
+                 <label for="quizName">Name and Lastname:</label>
+                <input type="text" id="quizName" name="nombre" required>
+            </div>
+            <div class="form-group">
+                <label>1. What is the capital of France?</label>
+                <input type="text" name="question1" required>
+            </div>
+            <div class="form-group">
+                <label>2. What is H₂O?</label>
+                <input type="text" name="question2" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Submit Quiz</button>
+            </div>
+        </form>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
