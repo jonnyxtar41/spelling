@@ -2,14 +2,17 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <!-- **IMPORTANTE**: Viewport para el diseño responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario Dinámico</title>
+    <title>Formulario Dinámico Responsive</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- Overlay de Autenticación con las opciones -->
     <div id="authOverlay">
         <div id="authBox">
+            <h1 class="auth-title">Actividades Disponibles</h1>
             <p id="authMessage">Selecciona una actividad para empezar.</p>
             <div id="activitySelector">
                 <button class="activity-button" data-view="spelling">Spelling</button>
@@ -19,6 +22,7 @@
         </div>
     </div>
 
+    <!-- Contenedor para la vista de Spelling -->
     <div id="spellingView" class="view-container">
         <h1>Spelling Quiz</h1>
         <form id="spellingForm">
@@ -54,6 +58,7 @@
         </form>
     </div>
 
+    <!-- Contenedor para la nueva vista de Writing -->
     <div id="writingView" class="view-container">
         <h1>Writing Task</h1>
         <form id="writingForm">
@@ -71,6 +76,7 @@
         </form>
     </div>
 
+    <!-- Contenedor para la nueva vista de Quiz -->
     <div id="quizView" class="view-container">
         <h1>General Knowledge Quiz</h1>
         <form id="quizForm">
